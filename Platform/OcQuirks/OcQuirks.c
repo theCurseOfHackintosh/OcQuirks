@@ -9,8 +9,8 @@
 #include <Protocol/LoadedImage.h>
 #include <Protocol/SimpleFileSystem.h>
 
-#define ROOT_PATH   L"EFI\\CLOVER"
-#define CONFIG_PATH L"drivers\\UEFI\\OcQuirks.plist"
+#define ROOT_PATH   L"EFI\\OZ"
+#define CONFIG_PATH L"Quirks\\OcQuirks.plist"
 
 #define MAX_DATA_SIZE 10000
 
@@ -26,13 +26,13 @@
 
 #define OC_QUIRKS_FIELDS(_, __) \
   _(BOOLEAN , AvoidRuntimeDefrag      ,   , TRUE  ,()) \
-  _(BOOLEAN , DevirtualiseMmio        ,   , FALSE ,()) \
+  _(BOOLEAN , DevirtualiseMmio        ,   , TRUE  ,()) \
   _(BOOLEAN , DisableSingleUser       ,   , FALSE ,()) \
   _(BOOLEAN , DisableVariableWrite    ,   , FALSE ,()) \
-  _(BOOLEAN , DiscardHibernateMap     ,   , FALSE ,()) \
+  _(BOOLEAN , DiscardHibernateMap     ,   , TRUE  ,()) \
   _(BOOLEAN , EnableSafeModeSlide     ,   , TRUE  ,()) \
-  _(BOOLEAN , EnableWriteUnprotector  ,   , FALSE  ,()) \
-  _(BOOLEAN , ForceExitBootServices   ,   , TRUE  ,()) \
+  _(BOOLEAN , EnableWriteUnprotector  ,   , TRUE  ,()) \
+  _(BOOLEAN , ForceExitBootServices   ,   , FALSE ,()) \
   _(OC_MMIO_WL_ARRAY , MmioWhitelist  ,   , OC_CONSTR2 (OC_MMIO_WL_ARRAY, _, __) , OC_DESTR (OC_MMIO_WL_ARRAY)) \
   _(BOOLEAN , ProtectMemoryRegions    ,   , FALSE ,()) \
   _(BOOLEAN , ProtectSecureBoot       ,   , FALSE ,()) \
@@ -40,10 +40,10 @@
   _(BOOLEAN , ProvideConsoleGopEnable ,   , TRUE  ,()) \
   _(UINT8   , ProvideMaxSlide         ,   , 0     ,()) \
   _(BOOLEAN , ProvideCustomSlide      ,   , TRUE  ,()) \
-  _(BOOLEAN , RebuildAppleMemoryMap   ,   , TRUE  ,()) \
+  _(BOOLEAN , RebuildAppleMemoryMap   ,   , FALSE ,()) \
   _(BOOLEAN , SetupVirtualMap         ,   , TRUE  ,()) \
   _(BOOLEAN , SignalAppleOS           ,   , FALSE ,()) \
-  _(BOOLEAN , SyncRuntimePermissions  ,   , TRUE  ,())
+  _(BOOLEAN , SyncRuntimePermissions  ,   , FALSE ,())
 
   OC_DECLARE (OC_QUIRKS)
 
