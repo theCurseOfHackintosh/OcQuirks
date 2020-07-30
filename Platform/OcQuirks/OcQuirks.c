@@ -9,7 +9,7 @@
 #include <Protocol/LoadedImage.h>
 #include <Protocol/SimpleFileSystem.h>
 
-#define ROOT_PATH   L"EFI\\OZ"
+#define ROOT_PATH   L"EFI"
 #define CONFIG_PATH L"Quirks\\OcQuirks.plist"
 
 #define MAX_DATA_SIZE 10000
